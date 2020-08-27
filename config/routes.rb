@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-resources :blogs
   devise_for :users
 
-root to: 'books#top'
-resources :books, :except => :new
+  root to: 'books#top'
+  get "books/about" => "books#about"
+  resources :books
 
+resources :users, only: [:index, :show, :edit, :update]
 end
