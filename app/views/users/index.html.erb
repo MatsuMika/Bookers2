@@ -1,24 +1,23 @@
 <h2>Users</h2>
 
 <body>
-<table>
- <thead>
-　 <tr>
-	<th>Image</th>
-　　 <th>name</th>
-　　 <th></th>
-　 </tr>
- </thead>
+ <table>
+  <thead>
+　  <tr>
+	 <th>Image</th>
+　　  <th>name</th>
+　　  <th></th>
+　  </tr>
+  </thead>
 
- <tbody>
- <% @books.each do |user| %>
-  <tr>
-    <td>#<td>
-　　 <td><%= user.profile_image_id %></td>
-　　 <td><%= user.name %></td>
-    </div><%= link_to "Show", user_path(user.id) %></div></td>
-　 </tr>
- <% end %>
- </tbody>
-</table>
+  <tbody>
+  <% @users.each do |user| %>
+   <tr>
+     <td><% attachment_image_tag user, :profile_image, fallback: "no-image.png" %></td>
+　　  <td><%= user.name %></td>
+     <td><%= link_to user."Show", user_path(user) %></td>
+　  </tr>
+  <% end %>
+  </tbody>
+ </table>
 </body>

@@ -15,12 +15,24 @@
        <p class="notice"><%= notice %></p>
      </div>
     <% end %>
-    
+
     <% if flash[:alert] %>
      <div ciass="notification is-dagner">
        <p class="alert"><%= alert %></p>
      </div>
-     <% end %>
+    <% end %>
+
+    < % if user_signed_in? %>
+     <% link_to "Home", #routesを見て以下パスを修正することdestroy_user_sesstion_path %>
+     <% link_to "About", #destroy_user_sesstion_path %>
+     <% link_to "sign up", new_user_registration_path %>
+     <% link_to "login", new_user_sesstion_path %>
+    <% else %>
+     <% link_to "Home", #destroy_user_sesstion_path %>
+     <% link_to "Books", #destroy_user_sesstion_path %>
+     <% link_to "Users", #destroy_user_sesstion_path %>
+     <% link_to "logout", destroy_user_sesstion_path, methood: :delete %>
+    <% end %>
 
     <%= yield %>
   </body>

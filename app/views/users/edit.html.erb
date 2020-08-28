@@ -1,3 +1,5 @@
+<h1>User info</h1>
+  <!-- from_forプロフィール画像用フォーム -->
 <%= form_for(@user) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
@@ -12,7 +14,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :introduction %><br />
+    <%= f.label :introduction %><br>
     <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
   </div>
 
