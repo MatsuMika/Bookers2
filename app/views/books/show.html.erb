@@ -1,16 +1,17 @@
+<%= render 'users/info' %>
+<%= render 'books/new' %>
+
 <body>
   <h1>Books derail</h1>
 
 <table>
  <tbody>
- <% @books.each do |book| %>
   <tr>
-　　 <td><%= book.title %></td>
-　　 <td><%= book.body %></td>
-    <td></div><%= link_to "Edit", edit_book_path(books.id) %></div></td>
-    <td></div><%= link_to "Destroy", book_path(book.id),  method: :delete, data:{ confirm: '本当に消しますか?' }, class:"destroy" %></div></td>
+　　 <td><%= @book.title %></td>
+　　 <td><%= @book.body %></td>
+    <td></div><%= link_to "Edit", edit_book_path(@book.id) %></div></td>
+    <td></div><%= link_to "Destroy", book_path(@book.id),  method: :delete, data:{ confirm: '本当に消しますか?' }, class:"destroy" %></div></td>
 　 </tr>
- <% end %>
  </tbody>
 </table>
 </body>

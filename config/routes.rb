@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
-  root to: 'books#top'
-  get "books/about" => "books#about"
+  root to: 'home#top'
+  get "home/about" => "home#about"
   resources :books
 
 resources :users, only: [:index, :show, :edit, :update]

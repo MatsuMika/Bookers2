@@ -1,72 +1,21 @@
+<%= render 'users/info' %>
+<%= render 'books/new' %>
+
+<h1>Books</h1>
+
+	<table>
+	  <thead>
+		<th></th>
+		<th>Title</th>
+		<th>Opinion</th>
+					　
+	</thead>
 <body>
-
-<!-- ここからサイドバー。あとで部分テンプレートとして移動。 -->
-<h1>User info</h1>>
-
-  <% @users.each do |user| %>
-   <% attachment_image_tag user, :profile_image, fallback: "no-image.png" %>
- <table>
-  <tbody>
-   <tr>
-   	 <td>name</td>>
-   	 <td><%= user.name %></td>
-     <td>introduction</td>
-     <tb><%= #user.introduction %></tb>
-　  </tr>
-  <% end %>
-  </tbody>
- </table>
-
-
-  <% if @user.id == current_user.id %>
-  <div class="actions">
-   <%= link_to f,submit"設定アイコン", edit_user_path(@user) %>
-    </div>
-  <% end %>
-
-<h1>New boo</h1>
-<%= form_for(@book) do |f| %>
-
-<% if @book.errors.any? %>
-   <h4><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h4>
- <ul>
-  <% @book.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
-<% end %>
- </ul>
-<% end %>
-
-<p>Title</br>
-<%= f.text_field :title %></p>
-
-<p>Opinion</br>
-<%= f.text_area :body %></p>
-
-<%= f.submit 'Create Book' %>
-
-<% end %>
-
-
- <!-- ここまでサイドバー。あとで部分テンプレートとして移動。 -->
-
- <h1>Books</h1>
-
-  <table>
-   <thead>
-　   <tr>
-	 <th></th>
-　　  <th>Title</th>
-　　  <th>Opinion</th>
-　   </tr>
-   </thead>
-
-   <tbody>
-   <% @books.each do |book| %>
-    <tr>
-　　   <td><%= book.title %></td>
-　　   <td><%= book.body %></td>
-　   </tr>
-   <% end %>
-   </tbody>
-  </table>
+	<% @books.each do |book| %>
+	  <tr>
+	  <td><%= book.title %></td>
+	  <td><%= book.body %></td>
+	  </tr>
+	<% end %>
 </body>
+	</table>

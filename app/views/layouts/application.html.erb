@@ -22,16 +22,20 @@
      </div>
     <% end %>
 
-    < % if user_signed_in? %>
-     <% link_to "Home", #routesを見て以下パスを修正することdestroy_user_sesstion_path %>
-     <% link_to "About", #destroy_user_sesstion_path %>
-     <% link_to "sign up", new_user_registration_path %>
-     <% link_to "login", new_user_sesstion_path %>
+    <h1>Bookers</h1>
+
+
+    <% if user_signed_in? %>
+     <%= link_to "Home", user_path(current_user) %>
+     <%= link_to "Users", users_path %>
+     <%= link_to "Books", books_path %>
+     <%= link_to "logout", destroy_user_session_path, method: :delete %>
     <% else %>
-     <% link_to "Home", #destroy_user_sesstion_path %>
-     <% link_to "Books", #destroy_user_sesstion_path %>
-     <% link_to "Users", #destroy_user_sesstion_path %>
-     <% link_to "logout", destroy_user_sesstion_path, methood: :delete %>
+     <%= link_to "Home", root_path %>
+     <%= link_to "About", home_about_path %>
+     <%= link_to "sign up", new_user_registration_path %>
+     <%= link_to "login", new_user_session_path %>
+
     <% end %>
 
     <%= yield %>
