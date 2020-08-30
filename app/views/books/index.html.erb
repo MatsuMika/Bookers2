@@ -1,2 +1,19 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<%= render 'users/info',user: @user %>
+<%= render 'books/new' ,book: @book %>
+
+<h1>Books</h1>
+
+	<table>
+	  <thead>
+		<th></th>
+		<th>Title</th>
+		<th>Opinion</th>
+	</thead>
+	<% @books.each do |book| %>
+	  <tr>
+	  <td><%= attachment_image_tag book.user, :profile_image, fallback: "no-image.png", size: "60x60" %></td>
+	  <td><%= book.title %></td>
+	  <td><%= book.body %></td>
+	  </tr>
+	<% end %>
+	</table>

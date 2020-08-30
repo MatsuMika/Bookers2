@@ -1,19 +1,19 @@
 <h1>User info</h1>
 
-  <% attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+  <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", size: "100x100" %>
 	<table>
 		<tr>
 		  <th>name</th>
-		  <th><%= @user.name %></th>
+		  <th><%= user.name %></th>
 		</tr>
 		<tr>
 	      <th>introduction</th>
-		  <th><%= @user.introduction %></th>
+		  <th><%= user.introduction %></th>
 		</tr>
 	</table>
 
-	<% if @user.id == current_user.id %>
 	<div class="actions">
-		<%= link_to edit_user_path(current_user), method: :get %>
+		<% if user.id == current_user.id %>
+        	<%= link_to "編集する", edit_user_path(user.id) %>
+		<% end %>
 	</div>
-	<% end %>
