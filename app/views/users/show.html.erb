@@ -13,7 +13,10 @@
 	  <% if @user==book.user %>
 	  <tr>
 	  <td><%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", size: "60x60" %></td>
-	  <td><%= book.title %></td>
+	  <td><%= link_to book_path(book.id) do %>
+	  		<%= book.title %>
+	  	  <% end %>
+	  </td>
 	  <td><%= book.body %></td>
 	  </tr>
 	  <% end %>
