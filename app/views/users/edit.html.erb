@@ -1,12 +1,13 @@
 <h1>User info</h1>
-  <!-- from_forプロフィール画像用フォーム -->
-<%= form_for(@user) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
 
- <div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
- </div>
+<%= render "devise/shared/error_messages", resource: @user %>
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
 
   <div class="field">
     <%= f.label :profile_image %><br />
