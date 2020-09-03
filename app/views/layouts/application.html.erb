@@ -1,43 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bookers</title>
+<head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <% if flash[:notice] %>
-     <div ciass="notification is-info">
-       <p class="notice"><%= notice %></p>
-     </div>
-    <% end %>
-
-    <% if flash[:alert] %>
-     <div ciass="notification is-dagner">
-       <p class="alert"><%= alert %></p>
-     </div>
-    <% end %>
+     <title>Bookers</title>
+</head>
 
 
-    <h1>Bookers</h1>
+<body>
+    <header class="navbar navbar-inverse" style="border-radius:0px;">
+        <div class="container">
+             <nav class="nav navbar-nav navbar-left">
+                <font size="4" color="white"><span>Bookers</span></font>
+            </nav>
 
-    <% if user_signed_in? %>
-     <%= link_to "Home", user_path(current_user) %>
-     <%= link_to "Users", users_path %>
-     <%= link_to "Books", books_path %>
-     <%= link_to "logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-     <%= link_to "Home", root_path %>
-     <%= link_to "About", home_about_path %>
-     <%= link_to "sign up", new_user_registration_path %>
-     <%= link_to "login", new_user_session_path %>
+            <nav>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if user_signed_in? %>
+                        <li class="">
+                            <%= link_to user_path(current_user) do %>
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to users_path do %>
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Users
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to books_path do %>
+                                <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Books
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to destroy_user_session_path, method: :delete do %>
+                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>logout
+                            <% end %>
+                        </li>
+                        <% else %>
+                        <li class="">
+                            <%= link_to root_path do %>
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to  home_about_path do %>
+                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>About
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to new_user_registration_path do %>
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>sign up
+                            <% end %>
+                        </li>
+                        <li class="">
+                            <%= link_to new_user_session_path do %>
+                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>login
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <% end %>
+        <% if flash[:notice] %>
+            <div ciass="notification is-info">
+                <p class="notice"><%= notice %></p>
+            </div>
+        <% end %>
+        <% if flash[:alert] %>
+            <div ciass="notification is-dagner">
+                <p class="alert"><%= alert %></p>
+            </div>
+        <% end %>
 
     <%= yield %>
-  </body>
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-9">
+                    <p>CopyRight Infratop.inc</p>
+                </div>
+            </div>
+        </div>
+</footer>
+
+</body>
 </html>

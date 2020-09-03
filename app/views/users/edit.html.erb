@@ -1,25 +1,32 @@
-<h1>User info</h1>
-
-<%= render "devise/shared/error_messages", resource: @user %>
-
-<%= form_for(@user) do |f| %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="row">
+  <div class="col-lg-1">
   </div>
 
-  <div class="field">
-    <%= f.label :profile_image %><br />
-    <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
-  </div>
+  <div class="col-lg-11">
+    <h2>User info</h2>
 
-  <div class="field">
-    <%= f.label :introduction %><br>
-    <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
-  </div>
+    <%= render "devise/shared/error_messages", resource: @user %>
 
-  <div class="actions">
-    <%= f.submit "Update User" %>
-  </div>
-<% end %>
+      <%= form_for(@user) do |f| %>
+
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :profile_image %><br />
+          <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :introduction %><br>
+          <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update User" %>
+        </div>
+      <% end %>
+    </div>
+</div>
