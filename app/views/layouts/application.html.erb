@@ -67,16 +67,22 @@
         </div>
     </header>
 
-        <% if flash[:notice] %>
-            <div ciass="notification is-info">
-                <p class="notice"><%= notice %></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <% if flash[:notice] %>
+                    <div class="notification is-info">
+                        <p class="notice"><%= notice %></p>
+                    </div>
+                <% end %>
+                <% if flash[:alert] %>
+                    <div class="notification is-dagner">
+                        <p class="alert"><%= alert %></p>
+                    </div>
+                <% end %>
             </div>
-        <% end %>
-        <% if flash[:alert] %>
-            <div ciass="notification is-dagner">
-                <p class="alert"><%= alert %></p>
-            </div>
-        <% end %>
+        </div>
+    </div>
 
     <%= yield %>
 

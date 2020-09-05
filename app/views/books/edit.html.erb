@@ -1,25 +1,35 @@
-<h2>Editing Book</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+		</div>
 
-<%= form_for(@book) do |f| %>
+		<div class="col-xs-9">
 
-	<% if @book.errors.any? %>
-		<h4><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h4>
+			<h1>Editing Book</h1>
+
+			<%= form_for(@book) do |f| %>
+
+			<% if @book.errors.any? %>
+			<h4><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h4>
 			<ul>
 				<% @book.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
+				<li><%= message %></li>
 				<% end %>
 			</ul>
-	<% end %>
+			<% end %>
 
 
-<p>Title<br>
-	<%= f.text_field :title %></p>
+			<p>Title<br>
+				<%= f.text_field :title %></p>
 
-	<p>Body</br>
-		<%= f.text_area :body %></p>
+			<p>Opinion</br>
+				<%= f.text_area :body %></p>
 
-		<%= f.submit 'Update Book' %>
+				<%= f.submit 'Update Book', class:"btn btn-primary" %>
 
-		<p><%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
-<% end %>
+				<p><%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %></p>
+				<% end %>
+		</div>
+	</div>
+</div>
 
